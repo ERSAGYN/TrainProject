@@ -1,3 +1,5 @@
+package locomotive;
+
 import interfaces.IMove;
 import locomotive.Locomotive;
 import rails.Rails;
@@ -5,14 +7,12 @@ import van.Van;
 
 import java.util.ArrayList;
 
-public class Train implements IMove {
+abstract public class Train {
     private final ArrayList<Van> vans = new ArrayList<Van>();
-    private final Locomotive locomotive;
     private Rails rails;
 
 
-    public Train(Locomotive locomotive, Van... vans) {
-        this.locomotive = locomotive;
+    public Train(Van... vans) {
         for(Van v: vans) {
             this.vans.add(v);
         }
@@ -22,6 +22,15 @@ public class Train implements IMove {
         return vans;
     }
 
+    public double getVansMass() {
+        double vansMass = 0;
+        for(Van v: getVans()){
+            vansMass += v.getMass();
+        }
+        return vansMass;
+    }
+    abstract public double getFuel();
+
     public Rails getRails() {
         return this.rails;
     }
@@ -30,7 +39,5 @@ public class Train implements IMove {
         this.rails = rails;
     }
 
-    public void move(int km) {
-        locomotive.move(km);
-    }
+    abstract public void move(int km);
 }
