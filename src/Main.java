@@ -7,6 +7,5 @@ public class Main {
         tr.move(15);
         System.out.println(tr.getFuel());
 
-
     }
 }
