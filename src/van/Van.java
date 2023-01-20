@@ -2,6 +2,7 @@ package van;
 
 abstract public class Van {
     double mass;
+    int place;
 
     public double getMass() {
         return mass;
@@ -10,4 +11,5 @@ abstract public class Van {
     public void setMass(double mass) {
         this.mass = mass;
     }
+
 }
