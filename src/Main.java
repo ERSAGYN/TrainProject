@@ -19,6 +19,7 @@ public class Main {
         Train tr = new Train(new ElectricLocomotive(new Rails(true)), new CargoVan(20));
         Train tr1 = new Train(new SteamLocomotive(300), new CargoVan(20));
         trains.add(tr);
+        trains.add(tr1);
         tr.move(15, 300);
         start();
         /*Connection conn = null;
