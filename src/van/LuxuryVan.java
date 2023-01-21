@@ -12,6 +12,6 @@ public class LuxuryVan extends PassengerVan{
 
     @Override
     public String toString() {
-        return "Масса: " + mass + ".\nМесто: " + getPlace() + " мест.";
+        return"\tЛюкс: " + "Масса: " + mass + " тонн." + ".\nМесто: " + getPlace() + " мест.";
     }
 }

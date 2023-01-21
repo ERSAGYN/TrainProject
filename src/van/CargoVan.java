@@ -7,6 +7,6 @@ public class CargoVan extends Van {
 
     @Override
     public String toString() {
-        return "Масса: " + mass + ".";
+        return"\tГрузовой: " +  "Масса: " + mass + " тонн.";
     }
 }

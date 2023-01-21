@@ -12,6 +12,6 @@ public class SeatedVan extends PassengerVan{
 
     @Override
     public String toString() {
-        return "Масса: " + mass + ".\nМесто: " + getPlace() + " мест.";
+        return"\tОбщий: " + "Масса: " + mass + " тонн." + ".\nМесто: " + getPlace() + " мест.";
     }
 }

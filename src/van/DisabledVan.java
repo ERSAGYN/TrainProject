@@ -12,6 +12,6 @@ public class DisabledVan extends PassengerVan{
 
     @Override
     public String toString() {
-        return "Масса: " + mass + ".\nМесто: " + getPlace() + " мест.";
+        return"\tВагон для инвалидов: " + "Масса: " + mass + " тонн." + ".\nМесто: " + getPlace() + " мест.";
     }
 }
