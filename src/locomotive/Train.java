@@ -60,6 +60,10 @@ public class Train implements IMove{
 
     @Override
     public String toString() {
-        return this.locomotive.toString();
+        String str = "";
+        for(Van v: vans) {
+            str += v.toString();
+        }
+        return this.locomotive.toString() + str;
     }
 }

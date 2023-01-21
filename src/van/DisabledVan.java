@@ -9,4 +9,9 @@ public class DisabledVan extends PassengerVan{
     public int getPlace() {
         return place;
     }
+
+    @Override
+    public String toString() {
+        return "Масса: " + mass + ".\nМесто: " + getPlace() + " мест.";
+    }
 }
