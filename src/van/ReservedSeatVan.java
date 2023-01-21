@@ -8,6 +8,6 @@ public class ReservedSeatVan extends PassengerVan{
 
     @Override
     public String toString() {
-        return "\tПлацкарт: " + "Масса: " + mass + " тонн." + ".\nМесто: " + place + " мест.";
+        return "\tПлацкарт: " + "Масса: " + mass + " тонн." + ".Место: " + place + " мест.\n";
     }
 }

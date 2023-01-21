@@ -13,6 +13,6 @@ public class RestaurantVan extends PassengerVan{
 
     @Override
     public String toString() {
-        return"\tРесторан: " +  "Масса: " + mass + " тонн." + ".\nМесто: " + getPlace() + " мест.";
+        return"\tРесторан: " +  "Масса: " + mass + " тонн." + ".Место: " + getPlace() + " мест.\n";
     }
 }

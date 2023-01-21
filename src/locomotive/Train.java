@@ -21,6 +21,10 @@ public class Train implements IMove{
         trainsList.add(this);
     }
 
+    public Train(Locomotive v) {
+        this.locomotive = v;
+    }
+
     public ArrayList<Van> getVans() {
         return vans;
     }
@@ -58,12 +62,22 @@ public class Train implements IMove{
         vans.add(v);
     }
 
+    public void addVan(int index, Van v) {
+        vans.add(index, v);
+    }
+
     @Override
     public String toString() {
         String str = "";
+        int count = 0;
         for(Van v: vans) {
-            str += v.toString();
+            str += "\tВагон " + count + " " + v.toString();
+            count++;
         }
-        return this.locomotive.toString() + str;
+        return this.locomotive.toString() + "\n" + str;
+    }
+
+    public static void deleteTrain(int index) {
+        trainsList.remove(index);
     }
 }

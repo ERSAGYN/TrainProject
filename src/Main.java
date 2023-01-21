@@ -1,3 +1,4 @@
+import locomotive.DieselLocomotive;
 import locomotive.ElectricLocomotive;
 import locomotive.SteamLocomotive;
 import locomotive.Train;
@@ -15,8 +16,8 @@ public class Main {
     static ArrayList<Train> trains = new ArrayList<>();
     static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
-
         Train tr = new Train(new ElectricLocomotive(new Rails(true)), new CargoVan(20));
+        Train tr1 = new Train(new SteamLocomotive(300), new CargoVan(20));
         trains.add(tr);
         tr.move(15, 300);
         start();
@@ -55,11 +56,36 @@ public class Main {
                 editTrain(scan.nextInt());
                 break;
             case 3:
+                System.out.println("Введите локомотив поезда:\n1. Тепловоз (Дизельный)\n2. Паровоз\n3. Электровоз");
+                switch (scan.nextInt()) {
+                    case 1:
+                        trains.add(new Train(new DieselLocomotive(100)));
+                        break;
+                    case 2:
+                        trains.add(new Train(new SteamLocomotive(100)));
+                        break;
+                    case 3:
+                        trains.add(new Train(new ElectricLocomotive(new Rails(true))));
+                        break;
+                }
+                start();
                 break;
             case 4:
+                deleteTrain();
+                break;
+            case 5:
                 break;
         }
     }
+
+    public static void deleteTrain() {
+        System.out.println("Введите номер поезда: ");
+        int index = scan.nextInt();
+        trains.remove(index);
+        Train.deleteTrain(index);
+        start();
+    }
+
     public static void editTrain(int index) {
         try{
             trains.get(index).toString();
