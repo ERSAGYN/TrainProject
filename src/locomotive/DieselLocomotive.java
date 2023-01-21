@@ -17,7 +17,7 @@ public class DieselLocomotive extends Locomotive{
     }
 
     @Override
-    public void move(int km) {
+    public void move(int km, double mass) {
         double dieselConsumption = 1.6 * km;
         if(dieselConsumption > dieselVolume) {
             System.out.println("Не хватает топлива!");
@@ -25,5 +25,10 @@ public class DieselLocomotive extends Locomotive{
             dieselVolume -= dieselConsumption;
             System.out.println("Данный тепловоз проехал " + km + " километров.");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "DieselLocomotive";
     }
 }

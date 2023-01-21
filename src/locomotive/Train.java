@@ -7,15 +7,18 @@ import van.Van;
 
 import java.util.ArrayList;
 
-abstract public class Train {
+public class Train implements IMove{
     private final ArrayList<Van> vans = new ArrayList<Van>();
+    private final Locomotive locomotive;
     private Rails rails;
+    public static ArrayList<Train> trainsList = new ArrayList<>();
 
-
-    public Train(Van... vans) {
+    public Train(Locomotive locomotive, Van... vans) {
+        this.locomotive = locomotive;
         for(Van v: vans) {
-            this.vans.add(v);
+            this.vans.add(v); // for(int i = 0; i < vans.length(); i++)
         }
+        trainsList.add(this);
     }
 
     public ArrayList<Van> getVans() {
@@ -29,15 +32,34 @@ abstract public class Train {
         }
         return vansMass;
     }
-    abstract public double getFuel();
-
     public Rails getRails() {
         return this.rails;
     }
-
     public void setRails(Rails rails) {
         this.rails = rails;
     }
 
-    abstract public void move(int km);
+
+    @Override
+    public void move(int km, double mass) {
+        this.locomotive.move(km, mass);
+    }
+
+    public void removeVan(int index) {
+        try{
+            vans.remove(index);
+        }
+        catch (Exception e) {
+            System.out.println("Вы ввели неправильный номер вагона!");
+        }
+    }
+
+    public void addVan(Van v) {
+        vans.add(v);
+    }
+
+    @Override
+    public String toString() {
+        return this.locomotive.toString();
+    }
 }

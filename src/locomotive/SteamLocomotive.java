@@ -15,8 +15,9 @@ public class SteamLocomotive extends Locomotive{
         this.coalWeight += coalWeight;
     }
 
+
     @Override
-    public void move(int km) {
+    public void move(int km, double mass) {
         double coalConsumption = 60 * km;
         if(coalConsumption > coalWeight) {
             System.out.println("Не хватает угля!. Расход топлива: 60 кг угля на 1 километр");
@@ -24,5 +25,10 @@ public class SteamLocomotive extends Locomotive{
             coalWeight -= coalConsumption;
             System.out.println("Данный паровоз проехал " + km + " километров.");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "SteamLocomotive";
     }
 }
